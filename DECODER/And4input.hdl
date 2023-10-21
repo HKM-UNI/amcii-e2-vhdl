@@ -1,0 +1,9 @@
+CHIP And4input {
+    IN a, b, c, d;
+    OUT out;
+
+    PARTS:
+    And(a=a, b=b, out=firstHalf);
+    And(a=c, b=d, out=secondHalf);
+    And(a=firstHalf, b=secondHalf, out=out);
+}

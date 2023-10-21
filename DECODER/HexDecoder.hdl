@@ -1,0 +1,27 @@
+CHIP HexDecoder {
+    IN in[4];
+    OUT out[16];
+
+    PARTS:
+    Not(in=in[3], out=nota);
+    Not(in=in[2], out=notb);
+    Not(in=in[1], out=notc);
+    Not(in=in[0], out=notd);
+
+    And4input(a=nota, b=notb, c=notc, d=notd, out=out[0]);
+    And4input(a=nota, b=notb, c=notc, d=in[0], out=out[1]);
+    And4input(a=nota, b=notb, c=in[1], d=notd, out=out[2]);
+    And4input(a=nota, b=notb, c=in[1], d=in[0], out=out[3]);
+    And4input(a=nota, b=in[2], c=notc, d=notd, out=out[4]);
+    And4input(a=nota, b=in[2], c=notc, d=in[0], out=out[5]);
+    And4input(a=nota, b=in[2], c=in[1], d=notd, out=out[6]);
+    And4input(a=nota, b=in[2], c=in[1], d=in[0], out=out[7]);
+    And4input(a=in[3], b=notb, c=notc, d=notd, out=out[8]);
+    And4input(a=in[3], b=notb, c=notc, d=in[0], out=out[9]);
+    And4input(a=in[3], b=notb, c=in[1], d=notd, out=out[10]);
+    And4input(a=in[3], b=notb, c=in[1], d=in[0], out=out[11]);
+    And4input(a=in[3], b=in[2], c=notc, d=notd, out=out[12]);
+    And4input(a=in[3], b=in[2], c=notc, d=in[0], out=out[13]);
+    And4input(a=in[3], b=in[2], c=in[1], d=notd, out=out[14]);
+    And4input(a=in[3], b=in[2], c=in[1], d=in[0], out=out[15]);
+}

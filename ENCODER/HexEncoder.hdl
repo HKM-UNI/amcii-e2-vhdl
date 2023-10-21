@@ -1,0 +1,22 @@
+CHIP HexEncoder {
+    IN in[16];
+    OUT out[4];
+
+    PARTS:
+    // Expresion adaptada de
+    // Sudhakar Atchala. (2023, 16 agosto). Hexadecimal to binary Encoder
+    //  | 16 * 4 encoder | Block Diagram | Truth Table | Logic Circuit | DLD [Vídeo].
+    //  YouTube. https://www.youtube.com/watch?v=l4YjMjHCSrU
+    Or8input(a=in[1], b=in[3], c=in[5], d=in[7],
+             e=in[9], f=in[11], g=in[13], h=in[15],
+             out=out[0]);
+    Or8input(a=in[2], b=in[3], c=in[6], d=in[7],
+             e=in[10], f=in[11], g=in[14], h=in[15],
+             out=out[1]);
+    Or8input(a=in[4], b=in[5], c=in[6], d=in[7],
+             e=in[12], f=in[13], g=in[14], h=in[15],
+             out=out[2]);
+    Or8input(a=in[8], b=in[9], c=in[10], d=in[11],
+             e=in[12], f=in[13], g=in[14], h=in[15],
+             out=out[3]);
+}

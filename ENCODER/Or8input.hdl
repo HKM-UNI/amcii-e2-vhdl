@@ -1,0 +1,16 @@
+CHIP Or8input {
+    IN a, b, c, d, e, f, g, h;
+    OUT out;
+
+    PARTS:
+    // Pairs
+    Or(a=a, b=b, out=firstPair);
+    Or(a=c, b=d, out=secondPair);
+    Or(a=e, b=f, out=thirdPair);
+    Or(a=g, b=h, out=fourthPair);
+    // Halves
+    Or(a=firstPair, b=secondPair, out=firstHalf);
+    Or(a=thirdPair, b=fourthPair, out=secondHalf);
+    // Complete
+    Or(a=firstHalf, b=secondHalf, out=out);
+}
